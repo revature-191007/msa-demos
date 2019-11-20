@@ -1,0 +1,12 @@
+server:  port: 8200
+  
+spring:
+  application:
+    name: book-service
+  datasource:
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+  jpa:
+    hibernate:
+      ddl-auto: update
