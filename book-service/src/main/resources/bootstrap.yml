@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: book-service
+  config:
+    location: http://localhost:8888
+      profiles:    active:    - local

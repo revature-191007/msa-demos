@@ -1,0 +1,6 @@
+zuul:
+  routes:
+    # requests with context matching /hello/** will be routed to hello-service
+    hello-service: /hello/**
+    book-service: /books/**
+    author-service: /authors/**

@@ -1,0 +1,30 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+  
+  # Active profiles
+  profiles:
+    active:
+    - local
+    
+---
+spring:
+  profiles: local
+
+# local profile configuration
+server:
+  port: 8200
+
+
+---
+spring:
+  profiles: dev
+  
+# dev profile configuration
+server:
+  port: 8255

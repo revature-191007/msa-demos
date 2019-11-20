@@ -1,0 +1,15 @@
+server:
+  port: 8300
+  
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+    
+  profiles:
+    active: feignclient
+    

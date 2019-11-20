@@ -1,36 +1,16 @@
-package com.revature.models;
+package com.revature.dtos;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Positive;
+public class BookDTO {
 
-@Entity
-public class Book {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@NotBlank
 	private String title;
 
-	@PastOrPresent
-	@Column(name = "release_date")
 	private LocalDate releaseDate;
 
-	@Positive
-	@Column(name = "page_count")
 	private int pageCount;
-
-	@Column(name = "author_id")
-	private int authorId;
 
 	public int getId() {
 		return id;
@@ -64,19 +44,10 @@ public class Book {
 		this.pageCount = pageCount;
 	}
 
-	public int getAuthorId() {
-		return authorId;
-	}
-
-	public void setAuthorId(int authorId) {
-		this.authorId = authorId;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + authorId;
 		result = prime * result + id;
 		result = prime * result + pageCount;
 		result = prime * result + ((releaseDate == null) ? 0 : releaseDate.hashCode());
@@ -92,9 +63,7 @@ public class Book {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Book other = (Book) obj;
-		if (authorId != other.authorId)
-			return false;
+		BookDTO other = (BookDTO) obj;
 		if (id != other.id)
 			return false;
 		if (pageCount != other.pageCount)
@@ -115,20 +84,18 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", title=" + title + ", releaseDate=" + releaseDate + ", pageCount=" + pageCount
-				+ ", authorId=" + authorId + "]";
+				+ "]";
 	}
 
-	public Book(int id, @NotBlank String title, @PastOrPresent LocalDate releaseDate, @Positive int pageCount,
-			int authorId) {
+	public BookDTO(int id, String title, LocalDate releaseDate,  int pageCount) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.releaseDate = releaseDate;
 		this.pageCount = pageCount;
-		this.authorId = authorId;
 	}
 
-	public Book() {
+	public BookDTO() {
 		super();
 	}
 
